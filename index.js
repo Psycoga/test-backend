@@ -6,7 +6,7 @@ const port = 3000;
 const app = express();
 
 // Usa el middleware de Morgan con el formato 'dev'
-app.use(morgan('dev'));
+app.use(morgan('combined'));
 
 app.get('/', (req, res) => {
     res.send("Hola mundo");
