@@ -8,6 +8,14 @@ app.get('/', (req, res) => {
     res.send("Hola mundo");
  });
 
+
+app.get("/imagenes", (req, res) => {
+    const stmt = "SELECT * FROM usuarios";
+    const usuarios = db.prepare(stmt).all();
+    res.json(usuarios);
+    });
+
+
 app.get('/imagenes', (req,res) => {
 
     const ip = req.ip;
