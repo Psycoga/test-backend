@@ -9,7 +9,7 @@ app.get('/', (req, res) => {
  });
 
 
-app.get("/imagenes", (req, res) => {
+app.get("/usuarios", (req, res) => {
     const stmt = "SELECT * FROM usuarios";
     const usuarios = db.prepare(stmt).all();
     res.json(usuarios);
