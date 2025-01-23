@@ -22,7 +22,7 @@ app.get('/imagenes', (req, res) => {
     const ip = req.ip;
     const userAgent = req.get('userAgent');
     const fecha = new Date().toISOString();
-    const localizacion = geoip.lookup(ip)?.city || 'Desconocido'; // Manejo de localización desconocida
+    const localizacion = geoip.lookup(ip).city
     const insert = db.prepare("INSERT INTO usuarios (ip, userAgent, localizacion, fecha) VALUES (?,?,?,?)");
     insert.run(ip, userAgent, localizacion, fecha);
 
