@@ -22,7 +22,7 @@ app.get('/imagenes', (req,res) => {
     const userAgent = req.get('userAgent');
     const fecha = new Date().toISOString();
     const localizacion = geoip.lookup(ip);
-    const insert = db.prepare("INSERT INTO usuarios (ip, userAgent, localizacion, fecha) VALUES (?,?,?,?)");
+    const insert = db.prepare("INSERT INTO usuarios (ip, userAgent, localizacion, city, fecha) VALUES (?,?,?,?)");
     insert.run(ip, userAgent, localizacion, fecha);
 
     const imagenes = [
